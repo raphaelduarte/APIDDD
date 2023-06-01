@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\APIDDD.Domain.Core\APIDDD.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

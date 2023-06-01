@@ -32,7 +32,9 @@ namespace APIDDD.Infrastructure.Data.Repositories
 
         public TEntity GetById(int id)
         {
+#pragma warning disable CS8603 // Possible null reference return.
             return _sqlContext.Set<TEntity>().Find(id);
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public void Remove(TEntity obj)
