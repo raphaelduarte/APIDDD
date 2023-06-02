@@ -1,13 +1,15 @@
 using APIDDD.Infrastructure.CrossCutting.IoC;
 using APIDDD.Infrastructure.Data;
 using Autofac;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connection = Configuration["SqlConnection:SqlConnectionString"];
-builder.Services.AddDbContext<SqlContext>(options => options.UseApplicationServiceProvider());
+builder.Services.AddDbContext<SqlContext>
+    (options => options.UseSqlServer("Data Source=DESKTOP-I4TK8NF\\SQLEXPRESS;Initial Catalog=TestDb;Integrated Security=True"));
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
